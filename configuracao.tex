@@ -1,0 +1,254 @@
+
+
+
+\makeatletter%
+\@ifclassloaded{beamer}%
+{
+%----------------------------------------------------------
+% glossário e acrônimos
+%
+\usepackage[acronym]{glossaries} %GLOSSÁRIO
+%\GlsSetXdyCodePage{utf8}
+\glsnoexpandfields
+\glsaddall
+\makeglossaries
+\newglossarystyle{dotglos}{%
+	\setglossarystyle{list}%
+	\renewcommand*{\glossentry}[2]{%
+		\item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}]
+		\ifglshassymbol{##1}{[\glossentrysymbol{##1}]\quad}{}%
+		\emph{\glossentrydesc{##1}}%
+		\unskip\leaders\hbox to 2.9mm{\hss.}\hfill##2}%
+	\renewcommand*{\glsgroupskip}{}%
+}
+% \newglossarystyle{dotglos}{%
+% 	\setglossarystyle{list}% base this style on the list style
+% 	\renewcommand*{\glossentry}[2]{%
+% 		\item[\glsentryitem{##1}%
+% 		\glstarget{##1}{\glossentryname{##1}}]
+% 		\glossentrydesc{##1}\glspostdescription\space
+% 		\unskip\leaders\hbox to 2.9mm{\hss.}\hfill\ifnum\glsentryprevcount{##1}>1 pp.\else p.\fi\ ##2}%
+% }
+\setglossarystyle{dotglos}
+%----------------------------------------------------------
+	}%
+{}%
+\makeatother%
+
+
+%----------------------------------------------------------
+% alinhar texto justificado
+%
+\usepackage{ragged2e}
+%----------------------------------------------------------
+
+
+
+\newcommand\sbullet[1][.5]{\mathbin{\ThisStyle{\vcenter{\hbox{%
+					\scalebox{#1}{$\SavedStyle\bullet$}}}}}%
+}
+
+
+% para codigos
+
+
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{inconsolata}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{CBruno}{
+  inputencoding=utf8,
+%   extendedchars=false,
+    language=java,
+    backgroundcolor=\color{white},
+    commentstyle=\color{dkgreen},
+    % keywordstyle=\color{blue},
+    % keywordstyle={[2]\color{magenta}},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{mauve},
+    % basicstyle=\footnotesize,
+    basicstyle=\tiny,
+    comment=[l]{\#},
+    escapechar=@,
+    escapeinside={\%*}{\text{\%}*)},
+    % escapeinside={;@}{\^^M},
+    otherkeywords={*,...},
+    % escapeinside={\%*}{*)},
+    % keywords={@relation,@attribute,@data},
+    % morekeywords=[2]{real,integer,numeric,string,date},
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    firstnumber=1,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{black},
+    keywordstyle=\color{blue},
+    % morekeywords={*,...},
+    % alsoletter={., [\_]},
+    texcl=true,
+    alsoletter ={_},
+    otherkeywords = {!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-},
+    % morecomment=[s][\color{black}]{<!--}{-->},
+    stepnumber=1,
+    % morecomment=[l][]{//}, 
+    % morecomment=[s][]{/*}{*/},
+    % morestring=[b]",
+    % morestring=[b]',
+    extendedchars=true,
+    literate=*
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {ã}{{\~a}}1 {ẽ}{{\~e}}1 {ĩ}{{\~i}}1 {õ}{{\~o}}1 {ũ}{{\~u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1 {^}{\text{\^{}}}1 {\\}{{$\textbackslash$}}1
+    {\%}{{\%}}1 
+}
+
+\lstdefinestyle{javaBruno}{
+  inputencoding=utf8,
+%   extendedchars=false,
+    language=java,
+    backgroundcolor=\color{white},
+    commentstyle=\color{dkgreen},
+    % keywordstyle=\color{blue},
+    % keywordstyle={[2]\color{magenta}},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{mauve},
+    % basicstyle=\footnotesize,
+    basicstyle=\tiny,
+    comment=[l]{\#},
+    escapechar=@,
+    escapeinside={\%*}{\text{\%}*)},
+    % escapeinside={;@}{\^^M},
+    otherkeywords={*,...},
+    % escapeinside={\%*}{*)},
+    % keywords={@relation,@attribute,@data},
+    % morekeywords=[2]{real,integer,numeric,string,date},
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    firstnumber=1,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{black},
+    keywordstyle=\color{blue},
+    % morekeywords={*,...},
+    % alsoletter={., [\_]},
+    texcl=true,
+    alsoletter ={_},
+    otherkeywords = {!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-},
+    % morecomment=[s][\color{black}]{<!--}{-->},
+    stepnumber=1,
+    % morecomment=[l][]{//}, 
+    % morecomment=[s][]{/*}{*/},
+    % morestring=[b]",
+    % morestring=[b]',
+    extendedchars=true,
+    literate=*
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {ã}{{\~a}}1 {ẽ}{{\~e}}1 {ĩ}{{\~i}}1 {õ}{{\~o}}1 {ũ}{{\~u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1 {^}{\text{\^{}}}1 {\\}{{$\textbackslash$}}1
+    {\%}{{\%}}1 
+}
+
+\lstset{style=javaBruno}
+
+
+
+
+\definecolor{cinColor}{HTML}{008f4c} %cor padrão
+
+\definecolor{consulta}{HTML}{f0f0f5} %cor padrão
+\definecolor{consultatitulo}{HTML}{9595b7} %cor padrão
+
+\makeatletter%
+\@ifclassloaded{beamer}%
+  {\setbeamercolor{saibamais}{fg=cinzaescuro,bg=cinzaclaro}
+  	\setbeamercolor{saibamaistitulo}{fg=aliceblue,bg=cinzaescuro}
+  	\renewcommand{\inputFilesMaxValue}{20}
+  	\renewcommand{\inputCurrentLesson}{-1}
+  }{}%
+\makeatother%
+
+
+\titulo{Organização de Computadores}
+\disciplina{J554 - ORGANIZAÇÃO DE COMPUTADORES}
+\turma{DS4P06-3706}
+\autor{Prof. Dr. Bruno Iran Ferreira Maciel}
+\cargahoraria{60h}
+\alocacao{xx}
+\local{OLINDA}
+\data{\mydate\today}
+
+\instituicao{}%Faculdade De Informática Do Recife}
+\nomecurso{Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas}
+\programa{}%Graduação em Sistemas de Informação}
+% \emailprograma{posgraduacao@cin.ufpe.br}
+% \siteprograma{http://cin.ufpe.br/\textasciitilde posgraduacao}
+
+\siteprograma{\href{http://brunomaciel.com}{\beamerbutton{brunomaciel.com}}}%FACIR}
+
+\figuralogo{imagens/logo.png}
+\figuralogocapa{imagens/logo-capa.png}
+\figuradmca{imagens/fig-dmca.png}
+
+
+
+\pgfplotstableread[col sep=&,header=true]{
+N & Aulas & Mês & Data & Conteúdo Previsto
+1 & 1-3 & Fevereiro & 18/02/2022 & Apresentação da disciplina e boas vindas
+2 & 4-6 & Fevereiro & 25/02/2022 & {Máquinas multiníveis contemporâneas}
+3 & 7-9 & Março & 04/03/2022 & {Evolução das máquinas multiníveis}
+4 & 10-12 & Março & 11/03/2022 & {Processadores, Memória principal e secundária}
+5 & 13-15 & Março & 18/03/2022 & {Dispositivos de Entrada e saída}
+6 & 16-18 & Março & 25/03/2022 & Aula de Revisão
+7 & 19-21 & Abril & 01/04/2022 & Primeira Avaliação - NP1
+8 & 22-24 & Abril & 08/04/2022 & {Introdução à portas lógicas}
+9 & 25-27 & Abril & 15/04/2022 & Feriado
+10 & 28-30 & Abril & 22/04/2022 & {Clocks, RAMs, ROMs, Chips de memória e CPU }
+11 & 31-33 & Abril & 29/04/2022 & {Barramentos, Interfaceamento de E/S}
+12 & 34-36 & Maio & 06/05/2022 & {Nível de microarquitetura (microprogramação)}
+13 & 37-39 & Maio & 13/05/2022 & Aula de Revisão
+14 & 40-42 & Maio & 20/05/2022 & Segunda Avaliação - NP2
+15 & 43-45 & Maio & 27/05/2022 & Atividades extracurriculares
+16 & 46-48 & Junho & 03/06/2022 & Prova substitutiva
+17 & 49-51 & Junho & 10/06/2022 & Atividades extracurriculares
+18 & 52-54 & Junho & 17/06/2022 & Atividades extracurriculares
+19 & 55-57 & Junho & 24/06/2022 & Atividades extracurriculares
+20 & 58-60 & Junho & 27/06/2022 & Atividades extracurriculares
+}\cronograma
+
+\newcommand{\columnIndex}{4}

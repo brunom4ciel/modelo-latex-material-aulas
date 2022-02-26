@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{booktabs}
+\usepackage[margin=1cm,showframe=false]{geometry} % remove 'showframe' option in real doc.
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,brazil]{babel}
+\usepackage{datetime}
+\newdateformat{mydate}{\shortmonthname[\the\month]  \the\year}
+\usepackage{multirow}
+% \usepackage{changepage}
+
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{}
+\cfoot{}
+\pagestyle{fancy}
+
+
+
+\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=1.9}% supress warning
+\usepackage{colortbl}
+
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{patterns}
+% \pgfplotsset{width=15cm,compat=1.8}
+% \pgfplotsset{compat=1.11,
+%     /pgfplots/ybar legend/.style={
+%     /pgfplots/legend image code/.code={%
+%       \draw[##1,/tikz/.cd,yshift=-0.25em]
+%         (0cm,0cm) rectangle (3pt,0.8em);},
+%   },
+% }
+
+\pgfplotsset{compat=1.11,
+	/pgfplots/ybar legend/.style={
+		/pgfplots/legend image code/.code={%
+			%\draw[##1,/tikz/.cd,yshift=-0.25em]
+			%(0cm,0cm) rectangle (3pt,0.8em);},
+			\draw[##1,/tikz/.cd,bar width=8pt,yshift=-0.2em,bar shift=0pt]
+			plot coordinates {(0cm,0.8em)};},
+	},
+}
+
+\pgfplotsset{/pgf/number format/use comma}
+
+
+
+\usepackage{fancybox}
+
+\usepackage{array}
+
+% \usepackage{pgfplotstable}
+% \pgfplotsset{compat=1.9}% supress warning
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% declaração de nomes de comandos
+%
+\providecommand{\titulo}[1]{\renewcommand{\titulo}{#1}}
+\providecommand{\autor}[1]{\renewcommand{\autor}{#1}}
+\providecommand{\data}[1]{\renewcommand{\data}{#1}}
+\providecommand{\instituicao}[1]{\renewcommand{\instituicao}{#1}}
+\providecommand{\nomecurso}[1]{\renewcommand{\nomecurso}{#1}}
+\providecommand{\programa}[1]{\renewcommand{\programa}{#1}}
+\providecommand{\emailprograma}[1]{\renewcommand{\emailprograma}{#1}}
+\providecommand{\siteprograma}[1]{\renewcommand{\siteprograma}{#1}}
+\providecommand{\local}[1]{\renewcommand{\local}{#1}}
+\providecommand{\disciplina}[1]{\renewcommand{\disciplina}{#1}}
+\providecommand{\turma}[1]{\renewcommand{\turma}{#1}}
+\providecommand{\cargahoraria}[1]{\renewcommand{\cargahoraria}{#1}}
+\providecommand{\alocacao}[1]{\renewcommand{\alocacao}{#1}}
+% %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\figuralogo}[1]{\renewcommand{\figuralogo}{#1}}
+\providecommand{\figuralogocapa}[1]{\renewcommand{\figuralogocapa}{#1}}
+\providecommand{\figuradmca}[1]{\renewcommand{\figuradmca}{#1}}
+\input{configuracao.tex}
+
+\pgfplotstableread[col sep=&]{
+Nome Completo &    Matrícula & Assinatura 
+*** &  **  &
+*** &  **  &
+
+}\alunos
+
+
+\begin{document}
+  
+\centering
+\makebox[1\textwidth][c]{ 
+\scalebox{1}{%
+\begin{tabular}{l|l}
+    \hline
+Professor    &     \autor \\ \hline
+Curso    &     \nomecurso \\ \hline
+Turma    &     \turma \\ \hline
+Local & \alocacao \\ \hline
+Disciplina    &     \disciplina \\ \hline
+Carga horária    &     \cargahoraria \\ \hline
+Data &  \\ \hline
+\multicolumn{2}{c}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multirow{2}{*}{Aula} & 01 & 02 & 03 & 04 & 05 & 06 & 07 & 08 & 09 & 10 \\ \cline{2-11}
+                      & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\ \hline
+\end{tabular}
+}
+% Aula    &    02 \\ \hline
+    \end{tabular}
+}}
+
+
+\vspace{1mm}  
+
+\begin{center}
+   \fontsize{18pt}{15.2}\selectfont{Frequência Escolar}
+\end{center}
+\vspace{1mm}
+
+
+\vspace{2mm}
+\centering
+\makebox[1\textwidth][c]{       %centering table
+\scalebox{1}{
+{\renewcommand{\arraystretch}{1.2}
+\fontsize{9pt}{13}\selectfont{
+\pgfplotstabletypeset[col sep=&,
+    string type,
+    column type=l,
+    % columns/Nome Completo/.style={column name={Nome Completo}, column  type={l}},
+     display columns/0/.style={column name={Nome Completo},column type={|l|}},
+     display columns/1/.style={column name={Matrícula}, column type={l}},
+     display columns/2/.style={column name={Assinatura}, column type={|l|}},
+    % columns/3/.style={column name={}, column type={|l}},
+    % columns/4/.style={column name={}, column type={|l}},
+    every head row/.style={before row=\hline,after row=\hline},
+    every last row/.style={after row=\hline},
+    after row={\hline},
+    every head row/.style={
+        before row={
+        \noalign{\hrule height 1.5pt}
+        },
+        after row={
+            \hline
+        },  
+    },
+    every last row/.style={
+        after row=\noalign{\hrule height 1.5pt}
+    },
+    col sep = comma,
+    every head row/.style={
+        before row={\hline\rowcolor{yellow!25}},after row=\hline
+    }
+]{\alunos}
+}}}
+}
+
+
+\end{document}

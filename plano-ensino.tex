@@ -1,0 +1,67 @@
+
+
+\pdfpagewidth 21cm
+\pdfpageheight 29.7cm
+
+% \setbeamertemplate{background canvas}{}
+
+\begin{frame}[plain]
+\vspace{2mm}
+\centering
+\makebox[1\textwidth][c]{       %centering table
+\scalebox{0.75}{
+{\renewcommand{\arraystretch}{1.2}
+\fontsize{9pt}{13}\selectfont{
+\pgfplotstabletypeset[col sep=&,
+    string type,
+    column type=l,
+    % columns/Nome Completo/.style={column name={Nome Completo}, column  type={l}},
+    columns/0/.style={column name=N,column type={|l|}},
+    columns/1/.style={column name=Aulas, column type={l}},
+    columns/2/.style={column name=Mês, column type={|l}},
+    columns/3/.style={column name=Data, column type={|l}},
+    columns/4/.style={column name={Conteúdo Previsto}, column type={|l}},
+    every head row/.style={before row=\hline,after row=\hline},
+    every last row/.style={after row=\hline},
+    after row={\hline},
+    every head row/.style={
+        before row={
+        \noalign{\hrule height 1.5pt}
+        },
+        after row={
+            \hline
+        },  
+    },
+    every last row/.style={
+        after row=\noalign{\hrule height 1.5pt}
+    },
+    col sep = comma,
+    every head row/.style={
+        before row={\hline\rowcolor{yellow!25}},after row=\hline
+    },
+    every row no 2/.style={
+        before row={\rowcolor{red!25}}
+    },
+    every row no 5/.style={
+        before row={\rowcolor{red!25}}
+    },
+    every row no 8/.style={
+        before row={\rowcolor{green!25}}
+    },
+    every row no 15/.style={
+        before row={\rowcolor{green!25}}
+    },
+    every row no 17/.style={
+        before row={\rowcolor{green!25}}
+    },
+]{\cronograma}
+}}}
+}
+
+\end{frame}
+
+\makeatletter
+\pdfpagewidth \beamer@paperwidth
+\pdfpageheight \beamer@paperheight
+\makeatother
+

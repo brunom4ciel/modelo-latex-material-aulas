@@ -1,0 +1,15 @@
+
+\ifnum \inputCurrentLesson=-1
+    %importa automaticamente os arquivos de aulas
+    \foreach\x in {1,...,\inputFilesMaxValue}{
+        \IfFileExists{aulas/0\x.tex}{\input{aulas/0\x.tex}}{\IfFileExists{aulas/00\x.tex}{\input{aulas/00\x.tex}}{}}
+    }
+\else
+    \ifnum \inputCurrentLesson>9 %`#\inputCurrentLesson>`9
+        \input{aulas/0\inputCurrentLesson.tex}
+    \else
+        \input{aulas/00\inputCurrentLesson.tex}
+    \fi
+\fi
+
+

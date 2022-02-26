@@ -1,0 +1,456 @@
+%-----PROVA Template
+%Adapted by: Milena Lima&Fernanda D.Gomes&Sara R. Pacheco
+%Autor:Hirschhorn,Philip(Using the exam document class)
+%Adaptations:
+%*Tradução da tabela de pontuação;
+%*Inclusão de "meios" em forma decimal nos valores pontuais %das questões;
+%*Inclusão de Referências e citações.
+%Science Project at school 2017-FAPEAM
+%View:https://www.overleaf.com/read/bmbsmqkxwndn
+%=========================================================
+%------------PROVA OBJETIVA/DISCURSIVA
+%=========================================================
+\documentclass[12pt,answers]{exam}
+
+% usando tema personalizado. 
+% arquivo exam-estilo.sty deve estar no mesmo diretório do prova.tex
+\usepackage{outros/exercicios/exam-estilo}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% declaração de nomes de comandos
+%
+\providecommand{\titulo}[1]{\renewcommand{\titulo}{#1}}
+\providecommand{\autor}[1]{\renewcommand{\autor}{#1}}
+\providecommand{\data}[1]{\renewcommand{\data}{#1}}
+\providecommand{\instituicao}[1]{\renewcommand{\instituicao}{#1}}
+\providecommand{\nomecurso}[1]{\renewcommand{\nomecurso}{#1}}
+\providecommand{\programa}[1]{\renewcommand{\programa}{#1}}
+\providecommand{\emailprograma}[1]{\renewcommand{\emailprograma}{#1}}
+\providecommand{\siteprograma}[1]{\renewcommand{\siteprograma}{#1}}
+\providecommand{\local}[1]{\renewcommand{\local}{#1}}
+\providecommand{\disciplina}[1]{\renewcommand{\disciplina}{#1}}
+\providecommand{\turma}[1]{\renewcommand{\turma}{#1}}
+\providecommand{\cargahoraria}[1]{\renewcommand{\cargahoraria}{#1}}
+\providecommand{\alocacao}[1]{\renewcommand{\alocacao}{#1}}
+\providecommand{\figuralogo}[1]{\renewcommand{\figuralogo}{#1}}
+\providecommand{\figuralogocapa}[1]{\renewcommand{\figuralogocapa}{#1}}
+\providecommand{\figuradmca}[1]{\renewcommand{\figuradmca}{#1}}
+% %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{configuracao.tex}
+
+% \doublespace
+\renewcommand{\baselinestretch}{1.5}
+
+%=========================================================
+%------------DIGITE AQUI
+%=========================================================
+\providecommand{\prova}[1]{\renewcommand{\prova}{#1}}
+\providecommand{\semestre}[1]{\renewcommand{\semestre}{#1}}
+\providecommand{\ano}[1]{\renewcommand{\ano}{#1}}
+\providecommand{\professor}[1]{\renewcommand{\professor}{#1}}
+\providecommand{\datava}[1]{\renewcommand{\datava}{#1}}
+\prova{Exercício} 
+\semestre{1} 
+\ano{2020} 
+\professor{\autor}
+\datava{28/05/2020}
+
+% \newcommand{\orgao}{Faculdade de Informática do Recife (FACIR)}
+% \newcommand{\escola}{Análise e Desenvolvimento de Sistemas}
+% \newcommand{\disciplina}{288s - Linguagens e Técnicas de Programação}
+% \newcommand{\professor}{Bruno Iran Ferreira Maciel}
+% \newcommand{\data}{21 de Novembro de 2019}%\today}
+
+% \newcommand{\tempo}{120 Minutos}
+% % \newcommand{\aluno}{\bf Aluno:}
+% \newcommand{\nota}{NOTA:}
+%=========================================================
+%------------Cabeçalho da Segunda 
+%=========================================================
+\pagestyle{headandfoot}%{head}%empty
+\firstpageheader{}{}{}
+\runningheader{\prova}{}{\data}
+\runningheadrule
+\firstpagefooter{}{}{}
+\runningfooter{}{Bons estudos!}{Pag. \thepage\ de \numpages}
+\runningfootrule
+%========================================================
+
+
+% \newcommand{\answerbox}[1][3\baselineskip]{%
+%     \noindent\framebox[\linewidth]{%
+%         \raisebox{0pt}[0pt][#1]{}%
+%     }\par\medskip%
+% }
+
+
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\par\noindent}
+
+
+\begin{document}
+
+
+
+
+\vspace{-2cm}
+\begin{center}
+\resizebox{.95\textwidth}{50mm}{
+  \begin{tikzpicture}
+    \node[draw=black,shade,
+      top color=white!40,
+      bottom color=black!5,
+      rounded corners=6pt,
+      blur shadow={shadow blur steps=5}
+    ] {
+    \noindent\fontsize{10pt}{10}\selectfont{
+    % \begin{minipage}[c]{0.21\linewidth}
+    %     % \includegraphics[width=4cm]{outros/logo.png}\\
+    %     % \centering
+    %     % \textbf{\prova}
+    % \end{minipage}
+    \begin{minipage}[c]{0.71\linewidth}
+        \vspace{5mm}
+        {\renewcommand{\arraystretch}{1}
+        \begin{tabular}{p{11cm}}
+            \instituicao  \textbf{\ano.\semestre} \\
+            \multicolumn{1}{l}{\nomecurso} \\
+            \multicolumn{1}{l}{\professor} \\
+            \multicolumn{1}{l}{DATA DE ENTREGA: \datava} \\
+            \multicolumn{1}{l}{\textbf{ALUNO:} \dashsign\dashsign\dashsign} \\
+            \multicolumn{1}{l}{\textbf{TURMAS:} \turma  ~~ \textbf{MATRÍCULA:} \dashsign}
+        \end{tabular}}
+        \vspace{7mm}
+    \end{minipage}
+    \begin{minipage}[c]{0.23\linewidth}
+        \begin{tikzpicture}
+            \node[draw=black,shade,
+              top color=white!40,
+              bottom color=black!5,
+              rounded corners=6pt,
+              blur shadow={shadow blur steps=5}
+            ] {
+            \parbox{3cm}{\vspace{13mm}\hspace{2.7cm}}
+            };
+        \end{tikzpicture}\\
+        \centering
+        \disciplina
+    \end{minipage}
+    }
+    };
+  \end{tikzpicture}}
+\end{center}
+
+    
+  
+  
+% \begin{adjustbox}{width=0.5\textwidth,center}
+
+
+
+
+
+\fbox{\parbox{17.7cm}{
+\centering
+\fontsize{11pt}{14}\selectfont{\textbf{INFORMAÇÕES IMPORTANTES}}
+
+\fontsize{10pt}{11pt}\selectfont{
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    % \item A atividade pode ser encontrada no link \url{https://www.dropbox.com/s/h9a3tt6dnru69j2/jn_2020_1_logica_programacao_1a-va.pdf?dl=0};
+    
+    % \item Em caso de dúvidas sobre as informações solicitadas, por favor verificar no Portal Acadêmico \url{http://aluno.sereduc.com};
+
+    \item A interpretação da atividade é parte integrante da avaliação;
+
+    \item Em caso dificuldades, entrar em contato comigo por e-mail facir@brunomaciel.com;
+
+    \item Não se esqueça de preencher o número da matrícula, nome complementar e turma;
+
+    \item A avaliação deverá ser entregue até a data da prova;
+
+    \item Qualquer atividade entregue após a data da prova, será penalizada com 20\% a menos. Prazo máximo para envio com atraso será 1 dia após a data da prova e deve ser feito por e-mail - meu e-mail já foi informado aqui;
+
+    \item Será atribuída nota zero ao aluno que entregar sua avaliação em branco ou ter feito plágio de qualquer questão;
+    
+    \item As questões podem ser feitas usando papel e caneta, mas devem ser entreguem em formato digital com extensão PDF;
+
+    \item Salve o arquivo com nome utilizando seu número de matrícula e nome completo, substituam os espaços em branco por traço (-) e não usem acentuação, exemplo de máscara <matrícula-primeiro-completo>.extensão. Exemplos: ``23958474-bruno-iran-ferreira-maciel.pdf'', ``5384698-marcos-da-silva-junior.pdf'';
+
+    \item Faça o envio de sua atividade preenchendo com seus dados e enviando o arquivo pelo formulário indicado pelo professor. %\url{https://forms.gle/f3Z34P3uT1r4DJHZA};
+    
+    % \item Após fazer envio do arquivo pelo formulário confirme aqui neste formulário \url{https://forms.office.com/Pages/ResponsePage.aspx?id=u5fvOq0_HUu52FdOJtGShJAACcZmH-hDgv3O4_GIdIxUQzNQNUpQVTU2NkhKU0RVSjNNVUlFV08zVi4u} seu envio. A confirmação é necessária para registro de sua participação na plataforma MS Teams.
+
+
+\end{itemize}
+}}}
+
+\fontsize{12}{12}\selectfont
+
+%--------------------Linha Após a Tabela
+\vspace{-10mm}
+
+
+\newpage
+
+
+\begin{center}
+% \rule[1ex]{\textwidth}{1pt}
+{\LARGE{\disciplina}}\\
+% Duração: \tempo \hspace{9cm} \\ %Data:\hspace{1cm}26/09/2019\\
+% \rule[2ex]{\textwidth}{1pt}
+\end{center}
+
+
+ 
+
+\begin{questions}
+%=========================================================
+%-------------------QUESTÕES DA PROVA
+%=========================================================
+
+
+\question Geral. Defina o conceito de Banco de Dados.
+\question Geral. Define o conceito de Sistema de Gerenciamento de Banco de Dados (SGBD).
+\question Geral. Qual a utilidade de um SGBD? Apresente as principais características de um SGBD.
+\question Geral. Quais as vantagens de um SGBD?
+\question Modelo de Dados. Explica os Modelo de Dados:
+\begin{itemize}
+    \item alto nível;
+    \item baixo nível;
+    \item presentação de dados.
+\end{itemize}
+\question Modelo Entidade e Relacionamento (MER). Defina o conceito de modelo de entidade e relacionamento.
+\question Modelo Entidade e Relacionamento (MER). Na notação de Peter Chen, qual símbolo representa: entidade, relacionamento e atributo.
+\question Modelo Entidade e Relacionamento (MER). Defina os conceitos de:
+\begin{itemize}
+    \item esquema;
+    \item instância;
+    \item entidade;
+    \item relacionamento;
+    \item atributo.
+\end{itemize}
+
+\question Arquitetura de SBGD. Explique a arquitetura de três esquemas e descreva cada um dos níveis de esquemas.
+\question Arquitetura de SBGD. Defina independência de dados e explique independência lógica de dados.
+\question Arquitetura de SBGD. Qual a linguagem padrão para manipulação de dados em SGBD?
+\question Arquitetura de SBGD. Defina o conceito e explique ODBC.
+
+\question Modelo Entidade e Relacionamento (MER). Utilize o programa brModelo para construir o modelo conceito do exemplo dado a seguir. Aluno(matrícula, cpf, nome, idade, peso, curso, período), curso(nome), faculdade(cpnj, nome, logradouro, curso). Considere definir o relacionamento entre aluno e curso, assim como faculdade e curso.
+
+\question  Modelo Entidade e Relacionamento (MER). Utilize o programa brModelo para construir o modelo lógico do exemplo dado a seguir. Aluno(matrícula, cpf, nome, idade, peso, curso, período), curso(nome), faculdade(cpnj, nome, logradouro, curso).
+\question Modelo Entidade e Relacionamento (MER). Explique a diferença entre MER e DER.
+\question Modelo Entidade e Relacionamento (MER). Defina os conceitos:
+\begin{itemize}
+    \item grau de relação;
+    \item cardinalidade;
+    \item domínio;
+    \item super chave;
+    \item chave;
+    \item chave primária;
+    \item chave candidata;
+    \item chave alternativa;
+    \item chave estrangeira;
+    \item entidade fraca;
+    \item entidade forte;
+    \item atributo multivalorado.
+\end{itemize}
+
+\question Explique o conceito de  em Modelo Relacional (MR).
+\question Explique os conceitos de restrições em Modelo Relacional (MR).
+\begin{itemize}
+    \item atributo NULO;
+    \item chave;
+    \item domínio.
+\end{itemize}
+
+\question Modelo Relacional (MR). Explique as regras de \textbf{integridade de entidade} e \textbf{integridade referencial}.
+\question Modelo Relacional (MR). Explique o que é e pra serve: mapeamento entre MER para MR.
+
+\question Álgebra Relacional. Defina o conceito de álgebra relacional.
+\question Álgebra Relacional. Explique as operações:
+\begin{itemize}
+    \item PROJEÇÃO
+    \item ATRIBUIÇÃO
+    \item RENOMEAÇÃO
+    \item UNIÃO
+    \item INTERSECÇÃO
+    \item SUBTRAÇÃO
+    \item PRODUTO CARTESIANO
+    \item JUNÇÃO
+\end{itemize}
+
+
+\question Normalização. Explique o conceito de Normalização.
+\question Normalização. Explique as diferenças entre as técnicas BOTTOM-UP e TOP-DOWN.
+\question Normalização. Explique o conceito de Dependência Funcional:
+\begin{itemize}
+    \item separada;
+    \item acumulada;
+    \item transitiva.
+\end{itemize}
+\question Normalização. Explique o que ocorre nas formas normais:
+\begin{itemize}
+    \item 1FN;
+    \item 2FN;
+    \item 3FN.
+\end{itemize}
+
+\question Administração de SGBD. Explique quais os princípios de administra de SGBD.
+\question Administração de SGBD. Explique os conceitos:
+\begin{itemize}
+    \item concorrência;
+    \item backup;
+    \item restauração;
+    \item bloqueio: compartilhado e exclusivo;
+    \item segurança;
+    \item consulta.
+\end{itemize}
+\question Fundamentos de SQL. Explique o conceito de SQL.
+% \question Fundamentos de SQL. Defina a instrução para:
+% \begin{itemize}
+%     \item criar um esquema com nome facir;
+%     \item criar tabelas com nomes empregado(nome varchar(20), cpnj varchar(15)), aluno(cpf varchar(11), nome (varchar(20)) e curso(codigo int, nome varchar(20)).
+% \end{itemize}
+
+\question Bancos de dados são conjuntos de arquivos que se comunicam entre si, armazenando uma vasta gama de dados, tais como nomes, documentos, pagamentos, endereços, clientes, etc. São configurados e gerenciados por meio das linguagens de programação, como Javascript, SQL, PL/SQL, entre outras. Referente a banco de dados, em SQL, o comando utilizado para criar um esquema é
+
+\begin{parts}
+    \part CREATE TABLE AUTHORIZATION SQL;
+    \part CREATE SCHEMA;
+    \part CREATE TABLE SCHEMA;
+    \part DEFINE SCHEMA;
+    \part SCHEMA CREATE;
+\end{parts}
+
+\question Dada a Linguagem de Definição de Dados (DDL) em Bancos de dados, assinale a alternativa INCORRETA.
+
+\begin{parts}
+    \part Permite definir tabelas;
+    \part Permite definir restrições de integridade;
+    \part Permite realizar um comando ``UPDATE'';
+    \part Permite definir assertivas;
+    \part Permite alterar o tipo de dado de uma determinada coluna. 
+\end{parts}
+
+\question No que diz respeito a banco de dados, julgue. Na linguagem SQL (Structured Query Language), os comandos CREATE, ALTER e DROP fazem parte da linguagem de manipulação de dados (DML). 
+
+\begin{parts}
+    \part Sim;
+    \part Não. 
+\end{parts}
+
+
+
+\question Considere o comando SQL abaixo.
+
+\begin{lstlisting}[language=sql]
+CREATE TABLE FACULDADE(
+    cnpj varchar(15) PRIMARY KEY,
+    nome varchar(20),
+    logradouro varchar(50)
+);
+\end{lstlisting}
+\vspace{1mm}
+Um Estagiário utilizou outro comando SQL, sem erros de sintaxe e com valores válidos, para inserir dados na tabela. O comando correto por ele utilizado foi: 
+
+\begin{parts}
+    \part INSERT INTO FACULDADE VALUES ('023698745896325', 'FACIR', 'RUA DO SOL');
+    \part INSERT INTO FACULDADE ('023698745896325', 'FACIR', 'RUA DO SOL');
+    \part INSERT IN FACULDADE VALUES ('023698745896325', 'FACIR', 'RUA DO SOL');
+    \part INSERT INTO FACULDADE VALUES ('023698745896325', 'FACIR', RUA DO SOL);
+    \part INSERT IN FACULDADE ('023698745896325', 'FACIR', 'RUA DO SOL'); 
+\end{parts}
+
+
+\question Considere o comando SQL abaixo.
+
+\begin{lstlisting}[language=sql]
+CREATE TABLE FACULDADE(
+    cnpj varchar(15) PRIMARY KEY,
+    nome varchar(20),
+    logradouro varchar(50)
+);
+\end{lstlisting}
+\vspace{1mm}
+Considerando que já existem muitos registros na tabela, para selecionar aqueles cujo nomes sejam iniciados por 'FACIR', deve-se utilizar o comando SQL.
+
+\begin{parts}
+    \part SELECT ALL RECORDS FROM FACULDADE WHERE nome > 'FACIR';
+    \part SELECT * FROM FACULDADE WHERE nome LIKE 'FACIR\%';
+    \part SELECT ALL FROM FACULDADE WHERE nome LIKE '\%FACIR\%';
+    \part SELECT *.* FROM FACULDADE WHERE nome = 'FACIR'
+    \part SELECT FROM FACULDADE ALL RECORDS WHERE nome IN 'FACIR'; 
+\end{parts}
+
+
+% \makeemptybox{1in}
+
+% \question[1] As características que definem o pensamento computacional são ?
+
+% \begin{parts}
+%     \part reconhecimento de padrões, ilusão, remoção de detalhes e algoritmos.
+%     \part abstração, resultado, algoritmos e divisão.
+%     \part decomposição, reconhecimento de padrões, abstração e algoritmos.
+%     \part generalização, divisão, abstração e algoritmos.
+%     \part N.D.A
+% \end{parts}
+
+
+% \question[1] O pensamento computacional baseia-se em quatro pilares que orientam o processo de solução de problemas. Em relação ao algoritmo é CORRETO afirmar:
+
+% \begin{parts}
+%     \part engloba todos os pilares e é o processo de criação de um conjunto de regras para a resolução do problema.
+%     \part sempre será a parte codificada da solução.
+%     \part responsável pelo reconhecimento de padrões.
+%     \part escrita do código em linguagem de programação.
+%     \part N.D.A
+% \end{parts}
+
+
+% \question[2] Sistema de caixa de loja. Ler nome do produto, quantidade e preço unitário. Calcular e escrever o valor total (VT), o valor do desconto e o valor total a pagar (VTP).
+
+% \begin{itemize}
+%     \item valor total (VT) = quantidade * preço unitário
+%     \item valor total a pagar (VTP) = valor total - valor desconto
+% \end{itemize}
+
+
+% sabendo-se que o valor do desconto é calculado da seguinte maneira.
+
+% para produtos com preço unitário \textbf{menor que} R\$ 100:
+
+% \begin{itemize}
+%     \item Se quantidade <= 2 o desconto será de 1\%
+%     \item Se quantidade > 2 e quantidade <=15 o desconto será de 4\%
+%     \item Se quantidade > 15 o desconto será de 5\%
+% \end{itemize}
+
+% para produtos com preço unitário \textbf{maior ou igual que} R\$ 100:
+
+% \begin{itemize}
+%     \item Se quantidade <= 2 o desconto será de 3\%
+%     \item Se quantidade > 2 e quantidade <=15 o desconto será de 5\%
+%     \item Se quantidade > 15 o desconto será de 7\%
+% \end{itemize}
+
+% \question[2] Sistema de calculadora. Ler 4 valores inteiros. Se qualquer valor informado for menor ou igual a ZERO, deve ser lido um novo valor, ou seja, nenhum valor aceito pode ser menor ou igual a ZERO. Calcule e escreva ao final o resultado da soma dos dois maiores números lidos.
+
+% \question[1] Sistema de ordenação de valores. Ler 5 valores (considere que não serão informados valores iguais). Escrever os números em ordem CRESCENTE.
+
+% \question[1] Sistema de ordenação de valores. Ler 5 valores (considere que não serão informados valores iguais). Escrever os números em ordem DECRESCENTE.
+
+
+
+
+%=========================================================
+%-------------------FIM DA PROVA
+%=========================================================
+\end{questions}
+
+
+\end{document}
